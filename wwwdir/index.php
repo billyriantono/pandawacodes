@@ -1,1 +1,3 @@
-<?php echo "Xtream Codes Reborn"; ?>
+<?php
+
+echo "Pandawa Codes";
