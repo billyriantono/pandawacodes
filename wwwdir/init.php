@@ -38,16 +38,15 @@ define("TOTAL_SAVES_DROP", 6);
 define("CLOSE_OPEN_CONS_PATH", "/home/xtreamcodes/iptv_xtream_codes/tmp/opened_cons/");
 define("ENIGMA2_PLUGIN_DIR", "/home/xtreamcodes/iptv_xtream_codes/wwwdir/images/enigma2/");
 define("GEOIP2_FILENAME", "/home/xtreamcodes/iptv_xtream_codes/GeoLite2.mmdb");
-if (defined("USE_CACHE")) {
-    goto D60fe1c6237e7a6fb42d46a0ad628679;
+define("CONFIG_FILE", "/home/xtreamcodes/iptv_xtream_codes/config");
+
+if (!defined("USE_CACHE")) {
+    define("USE_CACHE", true);
 }
-define("USE_CACHE", true);
-D60fe1c6237e7a6fb42d46a0ad628679:
-if (defined("FETCH_BOUQUETS")) {
-    goto E3d4849f2c29e8d7213d86d6a6f8cba2;
+
+if (!defined("FETCH_BOUQUETS")) {
+    define("FETCH_BOUQUETS", true);
 }
-define("FETCH_BOUQUETS", true);
-E3d4849f2c29e8d7213d86d6a6f8cba2:
 define("CACHE_STREAMS", false);
 define("CACHE_STREAMS_TIME", 10);
 define("STREAM_TYPE", array("live", "series", "movie", "created_live", "radio_streams"));
@@ -61,7 +60,7 @@ require "/var/www/html/includes/stream.php";
 require "/var/www/html/langs/English.php";
 $_INFO = array();
 if (file_exists("/home/xtreamcodes/iptv_xtream_codes/config")) {
-    $_INFO = json_decode(EAAB451Ef7a60C6D480E43B6c15A14A1(base64_decode(file_get_contents("/home/xtreamcodes/iptv_xtream_codes/config")), CONFIG_CRYPT_KEY), true);
+    $_INFO = json_decode(EAAB451Ef7a60C6D480E43B6c15A14A1(base64_decode(file_get_contents(CONFIG_FILE)), CONFIG_CRYPT_KEY), true);
     define("SERVER_ID", $_INFO["server_id"]);
     Aa68ccfd1bbccf10cfbb34c08495fb39:
     $f566700a43ee8e1f0412fe10fbdf03df = new ipTV_db($_INFO["db_user"], $_INFO["db_pass"], $_INFO["db_name"], $_INFO["host"], $_INFO["db_port"], empty($_INFO["pconnect"]) ? false : true, isset($f828fbd7943068a1cd53cba5fe86120c) ? true : false);
