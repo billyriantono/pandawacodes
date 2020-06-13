@@ -52,19 +52,16 @@ if ($C2eef5835abdc711ef2e0b2a24dc4e46 = cD89785224751CCA8017139dAF9E891E::E55505
             $output["user_info"]["auth"] = 1;
             if ($C2eef5835abdc711ef2e0b2a24dc4e46["admin_enabled"] == 0) {
                 $output["user_info"]["status"] = "Banned";
-                goto c4bbc94387ce9cde8ad8382af05a8514;
             }
             if ($C2eef5835abdc711ef2e0b2a24dc4e46["enabled"] == 0) {
                 $output["user_info"]["status"] = "Disabled";
-                goto c4bbc94387ce9cde8ad8382af05a8514;
             }
             if (is_null($C2eef5835abdc711ef2e0b2a24dc4e46["exp_date"]) or $C2eef5835abdc711ef2e0b2a24dc4e46["exp_date"] > time()) {
                 $output["user_info"]["status"] = "Active";
-                goto bcdc7896d61d27d6f3ef1dce6965f5c1;
+            } else {
+                $output["user_info"]["status"] = "Expired";
             }
-            $output["user_info"]["status"] = "Expired";
-            bcdc7896d61d27d6f3ef1dce6965f5c1:
-            c4bbc94387ce9cde8ad8382af05a8514:
+            
             $output["user_info"]["exp_date"] = $C2eef5835abdc711ef2e0b2a24dc4e46["exp_date"];
             $output["user_info"]["is_trial"] = $C2eef5835abdc711ef2e0b2a24dc4e46["is_trial"];
             $output["user_info"]["active_cons"] = $C2eef5835abdc711ef2e0b2a24dc4e46["active_cons"];
