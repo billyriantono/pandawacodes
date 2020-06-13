@@ -8,19 +8,19 @@ if (!(!empty(A78bf8d35765Be2408C50712cE7A43aD::$request["action"]) && A78Bf8d357
     if (!(!empty(A78BF8d35765bE2408C50712cE7a43Ad::$request["action"]) && a78bF8d35765Be2408C50712CE7a43Ad::$request["action"] == "auth")) {
         if (!empty(A78bf8D35765bE2408C50712Ce7a43Ad::$request["token"])) {
             $Aacb752351b5de80f12830c2026b757e = a78bf8D35765BE2408c50712cE7A43ad::$request["token"];
-            $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM enigma2_devices WHERE `token` = '%s' AND `public_ip` = '%s' AND `key_auth` = '%s' LIMIT 1", $Aacb752351b5de80f12830c2026b757e, $B626d33e939f0dd9b6a026aa3f8c87a3, $D4f195af96a237479546fa1dccf6173a);
-            if (!($f566700a43ee8e1f0412fe10fbdf03df->D1e5CE3b87bB868b9e6efd39aa355A4F() <= 0)) {
-                $ef2191c41d898dd4d2c297b9115d985d = $f566700a43ee8e1f0412fe10fbdf03df->F1eD191d78470660edFf4A007696bc1F();
+            $ipTV_db->query("SELECT * FROM enigma2_devices WHERE `token` = '%s' AND `public_ip` = '%s' AND `key_auth` = '%s' LIMIT 1", $Aacb752351b5de80f12830c2026b757e, $B626d33e939f0dd9b6a026aa3f8c87a3, $D4f195af96a237479546fa1dccf6173a);
+            if (!($ipTV_db->D1e5CE3b87bB868b9e6efd39aa355A4F() <= 0)) {
+                $ef2191c41d898dd4d2c297b9115d985d = $ipTV_db->F1eD191d78470660edFf4A007696bc1F();
                 if (!(time() - $ef2191c41d898dd4d2c297b9115d985d["last_updated"] > $ef2191c41d898dd4d2c297b9115d985d["watchdog_timeout"] + 20)) {
                     $Efbabdfbd20db2470efbf8a713287c36 = isset(A78Bf8D35765BE2408c50712ce7a43AD::$request["page"]) ? A78bf8d35765bE2408c50712cE7A43ad::$request["page"] : '';
                     if (empty($Efbabdfbd20db2470efbf8a713287c36)) {
-                        $f566700a43ee8e1f0412fe10fbdf03df->query("UPDATE `enigma2_devices` SET `last_updated` = '%d',`rc` = '%d' WHERE `device_id` = '%d'", time(), A78Bf8d35765be2408C50712ce7A43aD::$request["rc"], $ef2191c41d898dd4d2c297b9115d985d["device_id"]);
-                        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `enigma2_actions` WHERE `device_id` = '%d'", $ef2191c41d898dd4d2c297b9115d985d["device_id"]);
+                        $ipTV_db->query("UPDATE `enigma2_devices` SET `last_updated` = '%d',`rc` = '%d' WHERE `device_id` = '%d'", time(), A78Bf8d35765be2408C50712ce7A43aD::$request["rc"], $ef2191c41d898dd4d2c297b9115d985d["device_id"]);
+                        $ipTV_db->query("SELECT * FROM `enigma2_actions` WHERE `device_id` = '%d'", $ef2191c41d898dd4d2c297b9115d985d["device_id"]);
                         $C2eef5835abdc711ef2e0b2a24dc4e46 = array();
-                        if (!($f566700a43ee8e1f0412fe10fbdf03df->D1e5Ce3B87bb868b9e6Efd39AA355a4f() > 0)) {
+                        if (!($ipTV_db->D1e5Ce3B87bb868b9e6Efd39AA355a4f() > 0)) {
                             goto cf01b8bc91ad0274d8753387de125ce4;
                         }
-                        $Ce7729bc93110c2030dc45bb29c9f93f = $f566700a43ee8e1f0412fe10fbdf03df->f1eD191d78470660EDff4A007696bC1f();
+                        $Ce7729bc93110c2030dc45bb29c9f93f = $ipTV_db->f1eD191d78470660EDff4A007696bC1f();
                         if (!("message" == $Ce7729bc93110c2030dc45bb29c9f93f["key"])) {
                             goto Cee58a2cc8472969397cd41a7d822c83;
                         }
@@ -78,7 +78,7 @@ if (!(!empty(A78bf8d35765Be2408C50712cE7A43aD::$request["action"]) && A78Bf8d357
                         }
                         $C2eef5835abdc711ef2e0b2a24dc4e46["block_plugin"] = (int) $Ce7729bc93110c2030dc45bb29c9f93f["type"];
                         Bf654ec5145e515532ee2ac1bfcd0c00:
-                        $f566700a43ee8e1f0412fe10fbdf03df->query("DELETE FROM enigma2_actions where id = '%d'", $Ce7729bc93110c2030dc45bb29c9f93f["id"]);
+                        $ipTV_db->query("DELETE FROM enigma2_actions where id = '%d'", $Ce7729bc93110c2030dc45bb29c9f93f["id"]);
                         cf01b8bc91ad0274d8753387de125ce4:
                         die(json_encode(array("valid" => true, "data" => $C2eef5835abdc711ef2e0b2a24dc4e46)));
                     }
@@ -132,7 +132,7 @@ if (!(!empty(A78bf8d35765Be2408C50712cE7A43aD::$request["action"]) && A78Bf8d357
         dee2031b96f1885960da09e8d58277c4:
         $Aacb752351b5de80f12830c2026b757e = strtoupper(md5(uniqid(rand(), true)));
         $Fb012ef0b8c84139cf5b45c26d1a4d54 = mt_rand(60, 70);
-        $f566700a43ee8e1f0412fe10fbdf03df->query("UPDATE `enigma2_devices` SET `original_mac` = '%s',`dns` = '%s',`key_auth` = '%s',`lversion` = '%s',`watchdog_timeout` = '%d',`modem_mac` = '%s',`local_ip` = '%s',`public_ip` = '%s',`enigma_version` = '%s',`cpu` = '%s',`version` = '%s',`token` = '%s',`last_updated` = '%d' WHERE `device_id` = '%d'", $b5014e12f754ad55b57d1a8e17efe7b0, $b37f0a028a0cad24cae4c9e61119f8de, $D4f195af96a237479546fa1dccf6173a, $A8dcbd7c47482ea0777db7c412f03a4d, $Fb012ef0b8c84139cf5b45c26d1a4d54, $A772ae3d339199a2063a8114463187e9, $fe0750f7aa30941e1e4cdf60bf6a717c, $B626d33e939f0dd9b6a026aa3f8c87a3, $Ad76f953cd176710f1445b66d793955d, $e001aedbc6e64693ba72fd0337a8fa76, $db129c7b99cf0960c74f2c766ce8df9a, $Aacb752351b5de80f12830c2026b757e, time(), $de0eb4ea8ae0aa5b5b8864529380cf22["enigma2"]["device_id"]);
+        $ipTV_db->query("UPDATE `enigma2_devices` SET `original_mac` = '%s',`dns` = '%s',`key_auth` = '%s',`lversion` = '%s',`watchdog_timeout` = '%d',`modem_mac` = '%s',`local_ip` = '%s',`public_ip` = '%s',`enigma_version` = '%s',`cpu` = '%s',`version` = '%s',`token` = '%s',`last_updated` = '%d' WHERE `device_id` = '%d'", $b5014e12f754ad55b57d1a8e17efe7b0, $b37f0a028a0cad24cae4c9e61119f8de, $D4f195af96a237479546fa1dccf6173a, $A8dcbd7c47482ea0777db7c412f03a4d, $Fb012ef0b8c84139cf5b45c26d1a4d54, $A772ae3d339199a2063a8114463187e9, $fe0750f7aa30941e1e4cdf60bf6a717c, $B626d33e939f0dd9b6a026aa3f8c87a3, $Ad76f953cd176710f1445b66d793955d, $e001aedbc6e64693ba72fd0337a8fa76, $db129c7b99cf0960c74f2c766ce8df9a, $Aacb752351b5de80f12830c2026b757e, time(), $de0eb4ea8ae0aa5b5b8864529380cf22["enigma2"]["device_id"]);
         $f5cab1816ec764ef073063a4c9596cb6["details"] = array();
         $f5cab1816ec764ef073063a4c9596cb6["details"]["token"] = $Aacb752351b5de80f12830c2026b757e;
         $f5cab1816ec764ef073063a4c9596cb6["details"]["username"] = $de0eb4ea8ae0aa5b5b8864529380cf22["user_info"]["username"];

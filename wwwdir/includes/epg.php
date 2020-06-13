@@ -43,7 +43,7 @@ class E3223A8ad822526d8F69418863b6E8B5
     }
     public function a0b90401c3241088846A84F33c2B50fF($E2b08d0d6a74fb4e054587ee7c572a9f, $dfc6b62ce4c2bd11aeb45ae2e9441819)
     {
-        global $f566700a43ee8e1f0412fe10fbdf03df;
+        global $ipTV_db;
         $f8f0da104ec866e0d96947b27214d28a = array();
         foreach ($this->epgSource->programme as $d76067cf9572f7a6691c85c12faf2a29) {
             $e818ebc908da0ee69f4f99daba6a1a18 = (string) $d76067cf9572f7a6691c85c12faf2a29->attributes()->channel;
@@ -100,7 +100,7 @@ class E3223A8ad822526d8F69418863b6E8B5
                     $dfc6b62ce4c2bd11aeb45ae2e9441819[$e818ebc908da0ee69f4f99daba6a1a18]["epg_lang"] = addslashes($dfc6b62ce4c2bd11aeb45ae2e9441819[$e818ebc908da0ee69f4f99daba6a1a18]["epg_lang"]);
                     $A73d5129dfb465fd94f3e09e9b179de0 = date("Y-m-d H:i:s", $start);
                     $cdd6af41b10abec2ff03fe043f3df1cf = date("Y-m-d H:i:s", $stop);
-                    $f8f0da104ec866e0d96947b27214d28a[] = "('" . $f566700a43ee8e1f0412fe10fbdf03df->escape($E2b08d0d6a74fb4e054587ee7c572a9f) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($e818ebc908da0ee69f4f99daba6a1a18) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($A73d5129dfb465fd94f3e09e9b179de0) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($cdd6af41b10abec2ff03fe043f3df1cf) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($dfc6b62ce4c2bd11aeb45ae2e9441819[$e818ebc908da0ee69f4f99daba6a1a18]["epg_lang"]) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($ff153ef1378baba89ae1f33db3ad14bf) . "', '" . $f566700a43ee8e1f0412fe10fbdf03df->escape($Fe7c1055293ad23ed4b69b91fd845cac) . "')";
+                    $f8f0da104ec866e0d96947b27214d28a[] = "('" . $ipTV_db->escape($E2b08d0d6a74fb4e054587ee7c572a9f) . "', '" . $ipTV_db->escape($e818ebc908da0ee69f4f99daba6a1a18) . "', '" . $ipTV_db->escape($A73d5129dfb465fd94f3e09e9b179de0) . "', '" . $ipTV_db->escape($cdd6af41b10abec2ff03fe043f3df1cf) . "', '" . $ipTV_db->escape($dfc6b62ce4c2bd11aeb45ae2e9441819[$e818ebc908da0ee69f4f99daba6a1a18]["epg_lang"]) . "', '" . $ipTV_db->escape($ff153ef1378baba89ae1f33db3ad14bf) . "', '" . $ipTV_db->escape($Fe7c1055293ad23ed4b69b91fd845cac) . "')";
                     goto F9a5fdab92aaa38ae7ad3cc982a3953e;
                 }
                 goto E45bcbb8d283399c92d22750351d1ab6;

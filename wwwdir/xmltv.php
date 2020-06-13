@@ -22,8 +22,8 @@ header("Content-Type: application/xml; charset=utf-8");
 $B1f3e7b388cc5e0a6305e957f3319444 = htmlspecialchars(A78bF8d35765Be2408C50712CE7A43Ad::$settings["server_name"], "ENT_]]_uM_OWED", "UTF-8");
 echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?><!DOCTYPE tv SYSTEM \"xmltv.dtd\">";
 echo "<tv generator-info-name=\"{$B1f3e7b388cc5e0a6305e957f3319444}\" generator-info-url=\"" . a78Bf8d35765BE2408C50712cE7a43Ad::$StreamingServers[SERVER_ID]["site_url"] . "\">";
-$f566700a43ee8e1f0412fe10fbdf03df->query("SELECT `stream_display_name`,`stream_icon`,`channel_id`,`epg_id` FROM `streams` WHERE `epg_id` IS NOT NULL");
-$Cd4eabf7ecf553f46c17f0bd5a382c46 = $f566700a43ee8e1f0412fe10fbdf03df->C126fd559932f625CDf6098D86C63880();
+$ipTV_db->query("SELECT `stream_display_name`,`stream_icon`,`channel_id`,`epg_id` FROM `streams` WHERE `epg_id` IS NOT NULL");
+$Cd4eabf7ecf553f46c17f0bd5a382c46 = $ipTV_db->C126fd559932f625CDf6098D86C63880();
 $Bbb7af082729bf21d97453279778fdee = array();
 foreach ($Cd4eabf7ecf553f46c17f0bd5a382c46 as $c72d66b481d02f854f0bef67db92a547) {
     $Fe45388c8d13b941318458fa095983c3 = htmlspecialchars($c72d66b481d02f854f0bef67db92a547["stream_display_name"], "ENT_]]_uM_OWED", "UTF-8");
@@ -40,7 +40,7 @@ foreach ($Cd4eabf7ecf553f46c17f0bd5a382c46 as $c72d66b481d02f854f0bef67db92a547)
     $Bbb7af082729bf21d97453279778fdee[] = $c72d66b481d02f854f0bef67db92a547["epg_id"];
 }
 $Bbb7af082729bf21d97453279778fdee = array_unique($Bbb7af082729bf21d97453279778fdee);
-$b0f1eb357ed72245e03dfe6268912497 = mysqli_query($f566700a43ee8e1f0412fe10fbdf03df->dbh, "SELECT * FROM `epg_data` WHERE `epg_id` IN(" . implode(",", $Bbb7af082729bf21d97453279778fdee) . ") AND `start` BETWEEN '" . date("Y-m-d H:i:00", strtotime("-{$cc787cb8dcdf96d84151c7a73aa831bf} day")) . "' AND '" . date("Y-m-d H:i:00", strtotime("+{$E9bd18f1acef0191a216cfc27a1fcfce} day")) . "'", MYSQLI_USE_RESULT);
+$b0f1eb357ed72245e03dfe6268912497 = mysqli_query($ipTV_db->dbh, "SELECT * FROM `epg_data` WHERE `epg_id` IN(" . implode(",", $Bbb7af082729bf21d97453279778fdee) . ") AND `start` BETWEEN '" . date("Y-m-d H:i:00", strtotime("-{$cc787cb8dcdf96d84151c7a73aa831bf} day")) . "' AND '" . date("Y-m-d H:i:00", strtotime("+{$E9bd18f1acef0191a216cfc27a1fcfce} day")) . "'", MYSQLI_USE_RESULT);
 f1bcbc646b7caf73aa5b0b71be389f78:
 if (!($c72d66b481d02f854f0bef67db92a547 = mysqli_fetch_assoc($b0f1eb357ed72245e03dfe6268912497))) {
     echo "</tv>";

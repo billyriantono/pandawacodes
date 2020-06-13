@@ -33,8 +33,8 @@ if ($C2eef5835abdc711ef2e0b2a24dc4e46 = Cd89785224751cCa8017139DAf9E891e::E55505
         goto F86341015ec5c1d16c9eabd33f823b5a;
     }
     if (!empty(a78BF8D35765bE2408C50712cE7a43Ad::$request["token"])) {
-        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM enigma2_devices WHERE `token` = '%s' AND `public_ip` = '%s' AND `key_auth` = '%s' LIMIT 1", A78Bf8d35765be2408C50712CE7A43ad::$request["token"], $B626d33e939f0dd9b6a026aa3f8c87a3, $D4f195af96a237479546fa1dccf6173a);
-        if (!($f566700a43ee8e1f0412fe10fbdf03df->d1e5ce3b87bb868B9E6efD39aA355a4F() <= 0)) {
+        $ipTV_db->query("SELECT * FROM enigma2_devices WHERE `token` = '%s' AND `public_ip` = '%s' AND `key_auth` = '%s' LIMIT 1", A78Bf8d35765be2408C50712CE7A43ad::$request["token"], $B626d33e939f0dd9b6a026aa3f8c87a3, $D4f195af96a237479546fa1dccf6173a);
+        if (!($ipTV_db->d1e5ce3b87bb868B9E6efD39aA355a4F() <= 0)) {
             c8c2342110187469ec6576b6bf21ae5e:
             F86341015ec5c1d16c9eabd33f823b5a:
             $B07dbd32bd4b3504b1aa499feb5ed369 = false;
@@ -121,16 +121,16 @@ if ($C2eef5835abdc711ef2e0b2a24dc4e46 = Cd89785224751cCa8017139DAf9E891e::E55505
                         goto ec5111b9b2b9691469381a719cf4a8aa;
                     }
                     $A7386eca40c08bf499c3668f497f7653 = intval(A78bf8d35765be2408C50712cE7a43aD::$request["stream_id"]);
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT `tv_archive_server_id`,`tv_archive_duration`,`channel_id`,`epg_id` FROM `streams` WHERE `id` = '%d' AND epg_id IS NOT NULL", $A7386eca40c08bf499c3668f497f7653);
-                    if (!($f566700a43ee8e1f0412fe10fbdf03df->d1E5CE3B87bb868B9E6EFD39Aa355A4F() > 0)) {
+                    $ipTV_db->query("SELECT `tv_archive_server_id`,`tv_archive_duration`,`channel_id`,`epg_id` FROM `streams` WHERE `id` = '%d' AND epg_id IS NOT NULL", $A7386eca40c08bf499c3668f497f7653);
+                    if (!($ipTV_db->d1E5CE3B87bb868B9E6EFD39Aa355A4F() > 0)) {
                         goto F348e59a5393a83f6d37482c70161610;
                     }
-                    $Cb52bcec44c66c3338fb465d14935a95 = $f566700a43ee8e1f0412fe10fbdf03df->f1Ed191d78470660EDFf4a007696Bc1f();
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp,UNIX_TIMESTAMP(end) as stop_timestamp FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s' ORDER BY `start` ASC", $Cb52bcec44c66c3338fb465d14935a95["epg_id"], $Cb52bcec44c66c3338fb465d14935a95["channel_id"]);
-                    if (!($f566700a43ee8e1f0412fe10fbdf03df->d1E5CE3b87Bb868B9E6eFd39aa355A4F() > 0)) {
+                    $Cb52bcec44c66c3338fb465d14935a95 = $ipTV_db->f1Ed191d78470660EDFf4a007696Bc1f();
+                    $ipTV_db->query("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp,UNIX_TIMESTAMP(end) as stop_timestamp FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s' ORDER BY `start` ASC", $Cb52bcec44c66c3338fb465d14935a95["epg_id"], $Cb52bcec44c66c3338fb465d14935a95["channel_id"]);
+                    if (!($ipTV_db->d1E5CE3b87Bb868B9E6eFd39aa355A4F() > 0)) {
                         goto A4e63eb17bc15fc4beec0d925b9e0b2a;
                     }
-                    foreach ($f566700a43ee8e1f0412fe10fbdf03df->C126fD559932F625CDF6098D86C63880() as $faca5f1c4c9dec5b739d7a905876b0cd) {
+                    foreach ($ipTV_db->C126fD559932F625CDF6098D86C63880() as $faca5f1c4c9dec5b739d7a905876b0cd) {
                         $Af72b52dd9e421439dfab285e9497fb5 = 0;
                         $C70062cf7c0eb2a3cb7085217bbb131c = 0;
                         if (!($faca5f1c4c9dec5b739d7a905876b0cd["start_timestamp"] <= time() && $faca5f1c4c9dec5b739d7a905876b0cd["stop_timestamp"] >= time())) {
@@ -159,16 +159,16 @@ if ($C2eef5835abdc711ef2e0b2a24dc4e46 = Cd89785224751cCa8017139DAf9E891e::E55505
                     }
                     $A7386eca40c08bf499c3668f497f7653 = intval(A78bf8d35765be2408c50712ce7a43ad::$request["stream_id"]);
                     $Ffb14fe8aab74bc4aab279b42393475f = empty(a78BF8D35765be2408c50712CE7A43Ad::$request["limit"]) ? 4 : intval(A78bF8D35765Be2408c50712ce7A43ad::$request["limit"]);
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT `channel_id`,`epg_id` FROM `streams` WHERE `id` = '%d' AND epg_id IS NOT NULL", $A7386eca40c08bf499c3668f497f7653);
-                    if (!($f566700a43ee8e1f0412fe10fbdf03df->D1e5ce3B87BB868b9e6EFD39aa355a4f() > 0)) {
+                    $ipTV_db->query("SELECT `channel_id`,`epg_id` FROM `streams` WHERE `id` = '%d' AND epg_id IS NOT NULL", $A7386eca40c08bf499c3668f497f7653);
+                    if (!($ipTV_db->D1e5ce3B87BB868b9e6EFD39aa355a4f() > 0)) {
                         goto A5a1dc650d155e609951dd5ab3554a72;
                     }
-                    $faca5f1c4c9dec5b739d7a905876b0cd = $f566700a43ee8e1f0412fe10fbdf03df->F1Ed191d78470660EDff4a007696BC1F();
-                    $f566700a43ee8e1f0412fe10fbdf03df->FC53E22AE7ee3bB881cd95fb606914F0("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp, UNIX_TIMESTAMP(end) as stop_timestamp  FROM `epg_data` WHERE `epg_id` = '{$faca5f1c4c9dec5b739d7a905876b0cd["epg_id"]}' AND `channel_id` = '{$faca5f1c4c9dec5b739d7a905876b0cd["channel_id"]}' AND ('" . date("Y-m-d H:i:00") . "' BETWEEN `start` AND `end` OR `start` >= '" . date("Y-m-d H:i:00") . "') ORDER BY `start` LIMIT {$Ffb14fe8aab74bc4aab279b42393475f}");
-                    if (!($f566700a43ee8e1f0412fe10fbdf03df->d1E5ce3b87Bb868B9e6Efd39AA355a4F() > 0)) {
+                    $faca5f1c4c9dec5b739d7a905876b0cd = $ipTV_db->F1Ed191d78470660EDff4a007696BC1F();
+                    $ipTV_db->FC53E22AE7ee3bB881cd95fb606914F0("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp, UNIX_TIMESTAMP(end) as stop_timestamp  FROM `epg_data` WHERE `epg_id` = '{$faca5f1c4c9dec5b739d7a905876b0cd["epg_id"]}' AND `channel_id` = '{$faca5f1c4c9dec5b739d7a905876b0cd["channel_id"]}' AND ('" . date("Y-m-d H:i:00") . "' BETWEEN `start` AND `end` OR `start` >= '" . date("Y-m-d H:i:00") . "') ORDER BY `start` LIMIT {$Ffb14fe8aab74bc4aab279b42393475f}");
+                    if (!($ipTV_db->d1E5ce3b87Bb868B9e6Efd39AA355a4F() > 0)) {
                         goto a68097e17cfef7790b1ec81c489597c9;
                     }
-                    $output["epg_listings"] = $f566700a43ee8e1f0412fe10fbdf03df->c126fd559932f625CDf6098d86c63880();
+                    $output["epg_listings"] = $ipTV_db->c126fd559932f625CDf6098d86c63880();
                     a68097e17cfef7790b1ec81c489597c9:
                     A5a1dc650d155e609951dd5ab3554a72:
                     d215a053ec364b2870e879010b4f428f:

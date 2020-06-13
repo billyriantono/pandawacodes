@@ -156,16 +156,16 @@ if (!(!isset(A78bF8D35765bE2408c50712Ce7A43aD::$request["username"]) || !isset(A
             if (!isset($b3671c2f351ad83d82df47bd43ef8768)) {
                 goto Cb94d6608b319af7b86be2815e9eaa46;
             }
-            $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `series` WHERE `id` = '%d'", $b3671c2f351ad83d82df47bd43ef8768);
-            $A0766c7ec9b7cbc336d730454514b34f = $f566700a43ee8e1f0412fe10fbdf03df->f1ed191D78470660EDff4A007696bc1f();
+            $ipTV_db->query("SELECT * FROM `series` WHERE `id` = '%d'", $b3671c2f351ad83d82df47bd43ef8768);
+            $A0766c7ec9b7cbc336d730454514b34f = $ipTV_db->f1ed191D78470660EDff4A007696bc1f();
             $A27497ef3d4dad3da90c414c89f81615 = $A0766c7ec9b7cbc336d730454514b34f["title"];
             $a41f6a5b2ce6655f27b7747349ad1f33 = new SimpleXMLExtended("<items/>");
             $a41f6a5b2ce6655f27b7747349ad1f33->addChild("playlist_name", "TV Series [ {$A27497ef3d4dad3da90c414c89f81615} ]");
             $d623cb8e6629e10f288da34e620b78b9 = $a41f6a5b2ce6655f27b7747349ad1f33->addChild("category");
             $d623cb8e6629e10f288da34e620b78b9->addChild("category_id", 1);
             $d623cb8e6629e10f288da34e620b78b9->addChild("category_title", "TV Series [ {$A27497ef3d4dad3da90c414c89f81615} ]");
-            $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `series_episodes` t1 INNER JOIN `streams` t2 ON t2.id=t1.stream_id WHERE t1.series_id = '%d' ORDER BY t1.season_num ASC, t1.sort ASC", $b3671c2f351ad83d82df47bd43ef8768);
-            $Cd4eabf7ecf553f46c17f0bd5a382c46 = $f566700a43ee8e1f0412fe10fbdf03df->C126fD559932F625CDF6098d86C63880(true, "season_num", false);
+            $ipTV_db->query("SELECT * FROM `series_episodes` t1 INNER JOIN `streams` t2 ON t2.id=t1.stream_id WHERE t1.series_id = '%d' ORDER BY t1.season_num ASC, t1.sort ASC", $b3671c2f351ad83d82df47bd43ef8768);
+            $Cd4eabf7ecf553f46c17f0bd5a382c46 = $ipTV_db->C126fD559932F625CDF6098d86C63880(true, "season_num", false);
             foreach (array_keys($Cd4eabf7ecf553f46c17f0bd5a382c46) as $c59070c3eab15fea2abe4546ccf476de) {
                 if (!($f409603490270683e24dc87b262cfe7d != 0)) {
                     goto B4e203eaa2d3d8f992a66a079585b414;
@@ -233,8 +233,8 @@ if (!(!isset(A78bF8D35765bE2408c50712Ce7A43aD::$request["username"]) || !isset(A
                 }
                 if (!($f409603490270683e24dc87b262cfe7d != $a8df9f055e91a1e9240230b69af85555["category_id"])) {
                     ecceb6c69cb74dfc4cb513fe1036ab38:
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp, UNIX_TIMESTAMP(end) as stop_timestamp FROM `epg_data` WHERE `channel_id` = '%s' AND  `end` >= '%s' LIMIT 2", $a8df9f055e91a1e9240230b69af85555["channel_id"], date("Y-m-d H:i:00"));
-                    $F8094cb3ced6b4e46ebea7b66bd0e870 = $f566700a43ee8e1f0412fe10fbdf03df->C126fD559932f625cdF6098D86C63880();
+                    $ipTV_db->query("SELECT *,UNIX_TIMESTAMP(start) as start_timestamp, UNIX_TIMESTAMP(end) as stop_timestamp FROM `epg_data` WHERE `channel_id` = '%s' AND  `end` >= '%s' LIMIT 2", $a8df9f055e91a1e9240230b69af85555["channel_id"], date("Y-m-d H:i:00"));
+                    $F8094cb3ced6b4e46ebea7b66bd0e870 = $ipTV_db->C126fD559932f625cdF6098D86C63880();
                     $d4c3c80b508f5d00d05316e7aa0858de = '';
                     $Ee61f16c515768a2a4ecfa726784a15f = '';
                     $C48e0083a9caa391609a3c645a2ec889 = 0;

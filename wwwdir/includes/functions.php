@@ -105,7 +105,7 @@ function BBd9e78AC32626E138e758e840305a7C($e5ececd623496efd3a17d36d4eb4b945, $Af
 }
 function D9F93B7c177e377D0BbfE315eAeAE505()
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
+    global $ipTV_db;
     if (!(a78BF8D35765Be2408c50712cE7A43ad::$settings["flood_limit"] == 0)) {
         $f4889efa84e1f2e30e5e9780973f68cb = Cd89785224751ccA8017139DAF9E891e::E1f75a50F74a8f4E2129BA474f45D670();
         if (!(empty($f4889efa84e1f2e30e5e9780973f68cb) || in_array($f4889efa84e1f2e30e5e9780973f68cb, Cd89785224751ccA8017139Daf9E891e::AB69E1103c96ee33fE21A6453d788925()))) {
@@ -123,7 +123,7 @@ function D9F93B7c177e377D0BbfE315eAeAE505()
                             file_put_contents($b63b894b2f9b5aabe135ef4a17f2aed8, json_encode($Fa6f56ee50a6331b464fdee0f2d47c94), LOCK_EX);
                             goto f091ce3b538bbffab5be74d0a4487d00;
                         }
-                        $f566700a43ee8e1f0412fe10fbdf03df->query("INSERT INTO `blocked_ips` (`ip`,`notes`,`date`) VALUES('%s','%s','%d')", $f4889efa84e1f2e30e5e9780973f68cb, "FLOOD ATTACK", time());
+                        $ipTV_db->query("INSERT INTO `blocked_ips` (`ip`,`notes`,`date`) VALUES('%s','%s','%d')", $f4889efa84e1f2e30e5e9780973f68cb, "FLOOD ATTACK", time());
                         A7785208D901bEa02B65446067CFd0B3::F320B6A3920944D8a18D7949c8abAcE4(array_keys(a78BF8D35765be2408c50712cE7A43ad::$StreamingServers), "sudo /sbin/iptables -A INPUT -s {$f4889efa84e1f2e30e5e9780973f68cb} -j DROP");
                         unlink($b63b894b2f9b5aabe135ef4a17f2aed8);
                         return;
@@ -147,21 +147,21 @@ function D9F93B7c177e377D0BbfE315eAeAE505()
 }
 function b66dac37e77D0B4B60e2De1e5e4FA184($ba85d77d367dcebfcc2a3db9e83bb581, $ea6531b28219f4f71cfd02aec23a0f33 = false)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
-    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT `type`,`movie_propeties`,`epg_id`,`channel_id` FROM `streams` WHERE `id` = '%d'", $ba85d77d367dcebfcc2a3db9e83bb581);
-    if (!($f566700a43ee8e1f0412fe10fbdf03df->d1E5cE3B87BB868B9E6eFD39aA355a4F() > 0)) {
+    global $ipTV_db;
+    $ipTV_db->query("SELECT `type`,`movie_propeties`,`epg_id`,`channel_id` FROM `streams` WHERE `id` = '%d'", $ba85d77d367dcebfcc2a3db9e83bb581);
+    if (!($ipTV_db->d1E5cE3B87BB868B9E6eFD39aA355a4F() > 0)) {
         d0da93c2b7fc23cc794b9a4d36f08f4c:
         return array();
     }
-    $d76067cf9572f7a6691c85c12faf2a29 = $f566700a43ee8e1f0412fe10fbdf03df->f1eD191d78470660eDff4a007696BC1f();
+    $d76067cf9572f7a6691c85c12faf2a29 = $ipTV_db->f1eD191d78470660eDff4a007696BC1f();
     if ($d76067cf9572f7a6691c85c12faf2a29["type"] != 2) {
         if ($ea6531b28219f4f71cfd02aec23a0f33) {
-            $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s' AND `end` >= '%s'", $d76067cf9572f7a6691c85c12faf2a29["epg_id"], $d76067cf9572f7a6691c85c12faf2a29["channel_id"], date("Y-m-d H:i:00"));
+            $ipTV_db->query("SELECT * FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s' AND `end` >= '%s'", $d76067cf9572f7a6691c85c12faf2a29["epg_id"], $d76067cf9572f7a6691c85c12faf2a29["channel_id"], date("Y-m-d H:i:00"));
             goto b2a5f34b506704a0b524a93cf2a84901;
         }
-        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s'", $d76067cf9572f7a6691c85c12faf2a29["epg_id"], $d76067cf9572f7a6691c85c12faf2a29["channel_id"]);
+        $ipTV_db->query("SELECT * FROM `epg_data` WHERE `epg_id` = '%d' AND `channel_id` = '%s'", $d76067cf9572f7a6691c85c12faf2a29["epg_id"], $d76067cf9572f7a6691c85c12faf2a29["channel_id"]);
         b2a5f34b506704a0b524a93cf2a84901:
-        return $f566700a43ee8e1f0412fe10fbdf03df->C126fd559932F625CdF6098d86C63880();
+        return $ipTV_db->C126fd559932F625CdF6098d86C63880();
     }
     return json_decode($d76067cf9572f7a6691c85c12faf2a29["movie_propeties"], true);
 }
@@ -173,7 +173,7 @@ function a072E3167c4Fd73EB67540546C961B7e()
 }
 function B9361CDF8F8f200F06F546758512060c($b25b89525a979cf56e2fd295b28327b8, $bad0c96fedbc6eccfe927016a4dc3cd6, $fca2439385f041f384419649ca2471d6, $d8ba920e2a1ba9839322c2bca0a7a741, $be29ac67a4314fc9435deb1462cae967, $a0bdfe2058b3579da2b71ebf929871e2, $Ba644b1066f7c673215de30d5ce5e62c, $B71eec623f2edcac610184525828cc2d, $f429d0e47085017e3f1e415952e44cba, $A6dde9bd7afc06231a1481ec56fd5768, $f34a0094f9db3be3b99dd1eb1e9a3b6d, $A60fc3238902ec8f309d806e5a28e0f7)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
+    global $ipTV_db;
     $bad0c96fedbc6eccfe927016a4dc3cd6 = base64_encode(strtoupper(urldecode($bad0c96fedbc6eccfe927016a4dc3cd6)));
     $cfc7b4c8f12f119c2180693d0fa61648 = false;
     if (!(!$A6dde9bd7afc06231a1481ec56fd5768 && (!empty($fca2439385f041f384419649ca2471d6) || !empty($d8ba920e2a1ba9839322c2bca0a7a741) || !empty($be29ac67a4314fc9435deb1462cae967) || !empty($a0bdfe2058b3579da2b71ebf929871e2) || !empty($Ba644b1066f7c673215de30d5ce5e62c) || !empty($B71eec623f2edcac610184525828cc2d)))) {
@@ -182,9 +182,9 @@ function B9361CDF8F8f200F06F546758512060c($b25b89525a979cf56e2fd295b28327b8, $ba
     $cfc7b4c8f12f119c2180693d0fa61648 = true;
     aae3695cb588ac90fbed968e4f4cad0b:
     if (!(!$A6dde9bd7afc06231a1481ec56fd5768 && !$cfc7b4c8f12f119c2180693d0fa61648 && $f34a0094f9db3be3b99dd1eb1e9a3b6d != "stb" && $A60fc3238902ec8f309d806e5a28e0f7 != "set_fav" && file_exists("TMP_DIRstalker_" . md5($bad0c96fedbc6eccfe927016a4dc3cd6)))) {
-        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `mag_devices` t1\r\n                      INNER JOIN `users` t2 ON t2.id = t1.user_id\r\n                      WHERE t1.`mac` = '%s'\r\n                      LIMIT 1", $bad0c96fedbc6eccfe927016a4dc3cd6);
-        if ($f566700a43ee8e1f0412fe10fbdf03df->D1E5cE3b87BB868B9e6EfD39Aa355a4F() > 0) {
-            $E574ed349c1c464172b5a4221afe809e = $f566700a43ee8e1f0412fe10fbdf03df->f1ed191d78470660edFF4a007696Bc1f();
+        $ipTV_db->query("SELECT * FROM `mag_devices` t1\r\n                      INNER JOIN `users` t2 ON t2.id = t1.user_id\r\n                      WHERE t1.`mac` = '%s'\r\n                      LIMIT 1", $bad0c96fedbc6eccfe927016a4dc3cd6);
+        if ($ipTV_db->D1E5cE3b87BB868B9e6EfD39Aa355a4F() > 0) {
+            $E574ed349c1c464172b5a4221afe809e = $ipTV_db->f1ed191d78470660edFF4a007696Bc1f();
             $E574ed349c1c464172b5a4221afe809e["allowed_ips"] = json_decode($E574ed349c1c464172b5a4221afe809e["allowed_ips"], true);
             if (!($E574ed349c1c464172b5a4221afe809e["admin_enabled"] == 0 || $E574ed349c1c464172b5a4221afe809e["enabled"] == 0)) {
                 if (!(!empty($E574ed349c1c464172b5a4221afe809e["exp_date"]) && time() > $E574ed349c1c464172b5a4221afe809e["exp_date"])) {
@@ -192,7 +192,7 @@ function B9361CDF8F8f200F06F546758512060c($b25b89525a979cf56e2fd295b28327b8, $ba
                         if (!$cfc7b4c8f12f119c2180693d0fa61648) {
                             goto A10e1b903050ad34be0afdb2c57473f7;
                         }
-                        $f566700a43ee8e1f0412fe10fbdf03df->query("UPDATE `mag_devices` SET `ver` = '%s' WHERE `mag_id` = '%d'", $fca2439385f041f384419649ca2471d6, $E574ed349c1c464172b5a4221afe809e["mag_id"]);
+                        $ipTV_db->query("UPDATE `mag_devices` SET `ver` = '%s' WHERE `mag_id` = '%d'", $fca2439385f041f384419649ca2471d6, $E574ed349c1c464172b5a4221afe809e["mag_id"]);
                         if (!(!empty(A78bf8D35765bE2408c50712cE7a43aD::$settings["allowed_stb_types"]) && !in_array(strtolower($d8ba920e2a1ba9839322c2bca0a7a741), a78BF8D35765BE2408C50712CE7A43Ad::$settings["allowed_stb_types"]))) {
                             if (!($E574ed349c1c464172b5a4221afe809e["lock_device"] == 1 && !empty($E574ed349c1c464172b5a4221afe809e["sn"]) && $E574ed349c1c464172b5a4221afe809e["sn"] !== $b25b89525a979cf56e2fd295b28327b8)) {
                                 if (!($E574ed349c1c464172b5a4221afe809e["lock_device"] == 1 && !empty($E574ed349c1c464172b5a4221afe809e["device_id"]) && $E574ed349c1c464172b5a4221afe809e["device_id"] !== $a0bdfe2058b3579da2b71ebf929871e2)) {
@@ -208,7 +208,7 @@ function B9361CDF8F8f200F06F546758512060c($b25b89525a979cf56e2fd295b28327b8, $ba
                                                 $ab59908f6050f752836a953eb8bb8e52 = !empty($E574ed349c1c464172b5a4221afe809e["forced_country"]) ? true : false;
                                                 if (!($ab59908f6050f752836a953eb8bb8e52 && $E574ed349c1c464172b5a4221afe809e["forced_country"] != "ALL" && $A75f2436a5614184bfe3442ddd050ec5 != $E574ed349c1c464172b5a4221afe809e["forced_country"] || !$ab59908f6050f752836a953eb8bb8e52 && !in_array("ALL", a78bF8d35765Be2408C50712ce7a43Ad::$settings["allow_countries"]) && !in_array($A75f2436a5614184bfe3442ddd050ec5, a78bF8D35765bE2408C50712CE7a43aD::$settings["allow_countries"]))) {
                                                     eb684ba79560e6a58d57e89cf6a1afc3:
-                                                    $f566700a43ee8e1f0412fe10fbdf03df->query("UPDATE `mag_devices` SET `ip` = '%s',`stb_type` = '%s',`sn` = '%s',`ver` = '%s',`image_version` = '%s',`device_id` = '%s',`device_id2` = '%s',`hw_version` = '%s' WHERE `mag_id` = '%d'", $f429d0e47085017e3f1e415952e44cba, htmlentities($d8ba920e2a1ba9839322c2bca0a7a741), htmlentities($b25b89525a979cf56e2fd295b28327b8), htmlentities($fca2439385f041f384419649ca2471d6), htmlentities($be29ac67a4314fc9435deb1462cae967), htmlentities($a0bdfe2058b3579da2b71ebf929871e2), htmlentities($Ba644b1066f7c673215de30d5ce5e62c), htmlentities($B71eec623f2edcac610184525828cc2d), $E574ed349c1c464172b5a4221afe809e["mag_id"]);
+                                                    $ipTV_db->query("UPDATE `mag_devices` SET `ip` = '%s',`stb_type` = '%s',`sn` = '%s',`ver` = '%s',`image_version` = '%s',`device_id` = '%s',`device_id2` = '%s',`hw_version` = '%s' WHERE `mag_id` = '%d'", $f429d0e47085017e3f1e415952e44cba, htmlentities($d8ba920e2a1ba9839322c2bca0a7a741), htmlentities($b25b89525a979cf56e2fd295b28327b8), htmlentities($fca2439385f041f384419649ca2471d6), htmlentities($be29ac67a4314fc9435deb1462cae967), htmlentities($a0bdfe2058b3579da2b71ebf929871e2), htmlentities($Ba644b1066f7c673215de30d5ce5e62c), htmlentities($B71eec623f2edcac610184525828cc2d), $E574ed349c1c464172b5a4221afe809e["mag_id"]);
                                                     A10e1b903050ad34be0afdb2c57473f7:
                                                     $E574ed349c1c464172b5a4221afe809e["fav_channels"] = !empty($E574ed349c1c464172b5a4221afe809e["fav_channels"]) ? json_decode($E574ed349c1c464172b5a4221afe809e["fav_channels"], true) : array();
                                                     if (!empty($E574ed349c1c464172b5a4221afe809e["fav_channels"]["live"])) {
@@ -260,14 +260,14 @@ function B9361CDF8F8f200F06F546758512060c($b25b89525a979cf56e2fd295b28327b8, $ba
 }
 function b303f4b9bCFA8d2FfC2Ae41c5d2aA387($a28758c1ab974badfc544e11aaf19a57 = null)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
+    global $ipTV_db;
     if (is_string($a28758c1ab974badfc544e11aaf19a57)) {
-        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.* FROM `stream_categories` t1 WHERE t1.category_type = '%s' GROUP BY t1.id ORDER BY t1.cat_order ASC", $a28758c1ab974badfc544e11aaf19a57);
+        $ipTV_db->query("SELECT t1.* FROM `stream_categories` t1 WHERE t1.category_type = '%s' GROUP BY t1.id ORDER BY t1.cat_order ASC", $a28758c1ab974badfc544e11aaf19a57);
         goto C951fe738f03d604f9e48ec14fc4a677;
     }
-    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.* FROM `stream_categories` t1 ORDER BY t1.cat_order ASC");
+    $ipTV_db->query("SELECT t1.* FROM `stream_categories` t1 ORDER BY t1.cat_order ASC");
     C951fe738f03d604f9e48ec14fc4a677:
-    return $f566700a43ee8e1f0412fe10fbdf03df->D1e5CE3B87bb868B9e6efd39Aa355A4f() > 0 ? $f566700a43ee8e1f0412fe10fbdf03df->c126fd559932F625Cdf6098d86c63880(true, "id") : array();
+    return $ipTV_db->D1e5CE3B87bb868B9e6efd39Aa355A4f() > 0 ? $ipTV_db->c126fd559932F625Cdf6098d86c63880(true, "id") : array();
 }
 function AfFb052CcA396818D81004fF99Db49AA()
 {
@@ -275,7 +275,7 @@ function AfFb052CcA396818D81004fF99Db49AA()
 }
 function Ea3020592126F8e67C0825492484aEF2($E38668abaa324e464e266fb7b7e784b1, $eb44bb017bb845b562c754c6978bad18, $bca72c242cf770f855c0eae8936335b7 = "ts", $dc26923f689872c2291d72d47eb689c9 = false)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
+    global $ipTV_db;
     if (!empty($eb44bb017bb845b562c754c6978bad18)) {
         if (!($bca72c242cf770f855c0eae8936335b7 == "mpegts")) {
             goto a39f5e1a3034de567870ab56475771c4;
@@ -288,13 +288,13 @@ function Ea3020592126F8e67C0825492484aEF2($E38668abaa324e464e266fb7b7e784b1, $eb
         $bca72c242cf770f855c0eae8936335b7 = "m3u8";
         b67614b1e687d089d4e699e0628797cd:
         if (empty($bca72c242cf770f855c0eae8936335b7)) {
-            $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.output_ext FROM `access_output` t1 INNER JOIN `devices` t2 ON t2.default_output = t1.access_output_id AND `device_key` = '%s'", $eb44bb017bb845b562c754c6978bad18);
+            $ipTV_db->query("SELECT t1.output_ext FROM `access_output` t1 INNER JOIN `devices` t2 ON t2.default_output = t1.access_output_id AND `device_key` = '%s'", $eb44bb017bb845b562c754c6978bad18);
             goto A577969077bf746bcc8e4b27faf64737;
         }
-        $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.output_ext FROM `access_output` t1 WHERE `output_key` = '%s'", $bca72c242cf770f855c0eae8936335b7);
+        $ipTV_db->query("SELECT t1.output_ext FROM `access_output` t1 WHERE `output_key` = '%s'", $bca72c242cf770f855c0eae8936335b7);
         A577969077bf746bcc8e4b27faf64737:
-        if (!($f566700a43ee8e1f0412fe10fbdf03df->d1E5ce3b87BB868b9e6efD39aA355a4F() <= 0)) {
-            $ef5e5003fbec0abe0a64a7638470e9fd = $f566700a43ee8e1f0412fe10fbdf03df->b98CE8b3899e362093173CC5eB4146b9();
+        if (!($ipTV_db->d1E5ce3b87BB868b9e6efD39aA355a4F() <= 0)) {
+            $ef5e5003fbec0abe0a64a7638470e9fd = $ipTV_db->b98CE8b3899e362093173CC5eB4146b9();
             $a8df9f055e91a1e9240230b69af85555 = cD89785224751cCA8017139dAF9E891e::E5550592AA298dD1d5ee59cdcE063a12($E38668abaa324e464e266fb7b7e784b1, null, null, true, true, false);
             if (!empty($a8df9f055e91a1e9240230b69af85555)) {
                 if (!(!empty($a8df9f055e91a1e9240230b69af85555["exp_date"]) && time() >= $a8df9f055e91a1e9240230b69af85555["exp_date"])) {
@@ -309,19 +309,19 @@ function Ea3020592126F8e67C0825492484aEF2($E38668abaa324e464e266fb7b7e784b1, $eb
                     if (!($bca72c242cf770f855c0eae8936335b7 == "rtmp")) {
                         goto Dbec9e468b5525a0cc17bd7369823dfb;
                     }
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.id,t2.server_id FROM \r\n                         `streams` t1\r\n                          INNER JOIN `streams_sys` t2 ON t2.stream_id = t1.id\r\n                          WHERE t1.rtmp_output = 1");
-                    $f53d081795585cc3a4de84113ceb7f31 = $f566700a43ee8e1f0412fe10fbdf03df->c126fd559932F625CdF6098D86C63880(true, "id", false, "server_id");
+                    $ipTV_db->query("SELECT t1.id,t2.server_id FROM \r\n                         `streams` t1\r\n                          INNER JOIN `streams_sys` t2 ON t2.stream_id = t1.id\r\n                          WHERE t1.rtmp_output = 1");
+                    $f53d081795585cc3a4de84113ceb7f31 = $ipTV_db->c126fd559932F625CdF6098D86C63880(true, "id", false, "server_id");
                     Dbec9e468b5525a0cc17bd7369823dfb:
                     if (!empty($ef5e5003fbec0abe0a64a7638470e9fd)) {
                         goto d5be913cbd8c06e0f23d033aadb27146;
                     }
                     $ef5e5003fbec0abe0a64a7638470e9fd = "ts";
                     d5be913cbd8c06e0f23d033aadb27146:
-                    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT t1.*,t2.*\r\n                              FROM `devices` t1\r\n                              LEFT JOIN `access_output` t2 ON t2.access_output_id = t1.default_output\r\n                              WHERE t1.device_key = '%s' LIMIT 1", $eb44bb017bb845b562c754c6978bad18);
-                    if (!($f566700a43ee8e1f0412fe10fbdf03df->D1e5ce3b87BB868b9E6eFd39aa355A4f() > 0)) {
+                    $ipTV_db->query("SELECT t1.*,t2.*\r\n                              FROM `devices` t1\r\n                              LEFT JOIN `access_output` t2 ON t2.access_output_id = t1.default_output\r\n                              WHERE t1.device_key = '%s' LIMIT 1", $eb44bb017bb845b562c754c6978bad18);
+                    if (!($ipTV_db->D1e5ce3b87BB868b9E6eFd39aa355A4f() > 0)) {
                         return false;
                     }
-                    $ef2191c41d898dd4d2c297b9115d985d = $f566700a43ee8e1f0412fe10fbdf03df->F1ED191D78470660EDFF4A007696bC1F();
+                    $ef2191c41d898dd4d2c297b9115d985d = $ipTV_db->F1ED191D78470660EDFF4A007696bC1F();
                     $d76067cf9572f7a6691c85c12faf2a29 = '';
                     if (empty($a8df9f055e91a1e9240230b69af85555["series_ids"])) {
                         goto F6539e58ef2903f80540f578456807f8;
@@ -500,7 +500,7 @@ function dc53ae228Df72d4C140FdA7FD5e7e0bE($F7c4b84b7a2fba7bcaf5f84d6e1fc2a0, $Ec
 }
 function f0bb8dBEaB7fb0ECcCc0a73980dBF47A($ebe823668f9748302d3bd87782a71948, $e951d0b9610ba3624d06def5a541cb17 = null)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
+    global $ipTV_db;
     $a01910ab1eba20c93676f67da6eaa25a = '';
     if (empty($e951d0b9610ba3624d06def5a541cb17)) {
         goto dc769bc7eacf779a4505b5ac462aad61;
@@ -516,8 +516,8 @@ function f0bb8dBEaB7fb0ECcCc0a73980dBF47A($ebe823668f9748302d3bd87782a71948, $e9
             goto Edb3c4254577cc645c6dbf87acf1147d;
     }
     Edb3c4254577cc645c6dbf87acf1147d:
-    $f566700a43ee8e1f0412fe10fbdf03df->query($b0f1eb357ed72245e03dfe6268912497);
-    return $f566700a43ee8e1f0412fe10fbdf03df->C126fD559932F625CdF6098D86c63880(true, "user_id", false);
+    $ipTV_db->query($b0f1eb357ed72245e03dfe6268912497);
+    return $ipTV_db->C126fD559932F625CdF6098D86c63880(true, "user_id", false);
 }
 function ec2283305A3A0ABb64fab98987118fb7()
 {
@@ -584,9 +584,9 @@ function ec2283305A3A0ABb64fab98987118fb7()
 }
 function Ce15043404Aa3e950Fc9c9dd8bc0325A($d408321c3d2f36c26d485366e0885d32, $D3b7378ea39c39f9d734834bc785a87e, $D3c32abd0d3bffc3578aff155e22d728)
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df;
-    $f566700a43ee8e1f0412fe10fbdf03df->query("SELECT * FROM `{$d408321c3d2f36c26d485366e0885d32}` WHERE `{$D3b7378ea39c39f9d734834bc785a87e}` = '%s'", $D3c32abd0d3bffc3578aff155e22d728);
-    if (!($f566700a43ee8e1f0412fe10fbdf03df->D1e5Ce3B87bB868B9e6efD39aA355a4F() > 0)) {
+    global $ipTV_db;
+    $ipTV_db->query("SELECT * FROM `{$d408321c3d2f36c26d485366e0885d32}` WHERE `{$D3b7378ea39c39f9d734834bc785a87e}` = '%s'", $D3c32abd0d3bffc3578aff155e22d728);
+    if (!($ipTV_db->D1e5Ce3B87bB868B9e6efD39aA355a4F() > 0)) {
         return false;
     }
     return true;

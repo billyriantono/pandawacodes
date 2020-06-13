@@ -119,9 +119,9 @@ if ($a8df9f055e91a1e9240230b69af85555 = CD89785224751cCA8017139dAF9E891E::e55505
             sleep(5);
         }
         if ($a8df9f055e91a1e9240230b69af85555['max_connections'] == 0 || $a8df9f055e91a1e9240230b69af85555['active_cons'] < $a8df9f055e91a1e9240230b69af85555['max_connections']) {
-            $f566700a43ee8e1f0412fe10fbdf03df->query('INSERT INTO `user_activity_now` (`user_id`,`stream_id`,`server_id`,`user_agent`,`user_ip`,`container`,`pid`,`date_start`,`geoip_country_code`,`isp`,`external_device`) VALUES(\'%d\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\')', $a8df9f055e91a1e9240230b69af85555['id'], $ba85d77d367dcebfcc2a3db9e83bb581, SERVER_ID, '', $f4889efa84e1f2e30e5e9780973f68cb, $F1350a5569e4b73d2f9cb26483f2a0c1, A78Bf8D35765bE2408C50712Ce7A43AD::$request['clientid'], time(), $A75f2436a5614184bfe3442ddd050ec5, $a8df9f055e91a1e9240230b69af85555['con_isp_name'], $a349f0750f0a814bd31ec4b3da51da95);
-            $E821605d1d9382d422040b86d29632d9 = $f566700a43ee8e1f0412fe10fbdf03df->BeB8a0BBa80A0133a23FE13d34dC94d6();
-            $f566700a43ee8e1f0412fe10fbdf03df->CA531F7BdC43b966DEFB4aBA3c8Faf22();
+            $ipTV_db->query('INSERT INTO `user_activity_now` (`user_id`,`stream_id`,`server_id`,`user_agent`,`user_ip`,`container`,`pid`,`date_start`,`geoip_country_code`,`isp`,`external_device`) VALUES(\'%d\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\')', $a8df9f055e91a1e9240230b69af85555['id'], $ba85d77d367dcebfcc2a3db9e83bb581, SERVER_ID, '', $f4889efa84e1f2e30e5e9780973f68cb, $F1350a5569e4b73d2f9cb26483f2a0c1, A78Bf8D35765bE2408C50712Ce7A43AD::$request['clientid'], time(), $A75f2436a5614184bfe3442ddd050ec5, $a8df9f055e91a1e9240230b69af85555['con_isp_name'], $a349f0750f0a814bd31ec4b3da51da95);
+            $E821605d1d9382d422040b86d29632d9 = $ipTV_db->BeB8a0BBa80A0133a23FE13d34dC94d6();
+            $ipTV_db->CA531F7BdC43b966DEFB4aBA3c8Faf22();
             http_response_code(200);
             die;
         }

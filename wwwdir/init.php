@@ -67,10 +67,10 @@ if (file_exists(CONFIG_FILE)) {
     die("no config found");
 }
 
-$f566700a43ee8e1f0412fe10fbdf03df = new ipTV_db($_INFO["db_user"], $_INFO["db_pass"], $_INFO["db_name"], $_INFO["host"], $_INFO["db_port"], empty($_INFO["pconnect"]) ? false : true, isset($f828fbd7943068a1cd53cba5fe86120c) ? true : false);
-A78bF8d35765be2408C50712ce7a43aD::$ipTV_db = &$f566700a43ee8e1f0412fe10fbdf03df;
-CD89785224751cCa8017139daf9E891e::$ipTV_db = &$f566700a43ee8e1f0412fe10fbdf03df;
-e3cF480c172E8B47FE10857C2a5Aeb48::$ipTV_db = &$f566700a43ee8e1f0412fe10fbdf03df;
+$ipTV_db = new ipTV_db($_INFO["db_user"], $_INFO["db_pass"], $_INFO["db_name"], $_INFO["host"], $_INFO["db_port"], empty($_INFO["pconnect"]) ? false : true, isset($f828fbd7943068a1cd53cba5fe86120c) ? true : false);
+A78bF8d35765be2408C50712ce7a43aD::$ipTV_db = &$ipTV_db;
+CD89785224751cCa8017139daf9E891e::$ipTV_db = &$ipTV_db;
+e3cF480c172E8B47FE10857C2a5Aeb48::$ipTV_db = &$ipTV_db;
 A78Bf8D35765be2408c50712CE7a43AD::fAB9232Faa11c27667E20D2B25c46266();
 include IPTV_INCLUDES_PATH . "geo/Reader.php";
 include IPTV_INCLUDES_PATH . "geo/Decoder.php";

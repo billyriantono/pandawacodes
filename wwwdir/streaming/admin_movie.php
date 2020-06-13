@@ -20,7 +20,7 @@ $f0ac6ad2b40669833242a10c23cad2e0 = false;
 $c3a18c26bfa971a25d2e6ada870ff735 = pathinfo(a78bf8d35765be2408c50712Ce7a43AD::$request['stream']);
 $ba85d77d367dcebfcc2a3db9e83bb581 = intval($c3a18c26bfa971a25d2e6ada870ff735['filename']);
 $F1350a5569e4b73d2f9cb26483f2a0c1 = $c3a18c26bfa971a25d2e6ada870ff735['extension'];
-$f566700a43ee8e1f0412fe10fbdf03df->query('
+$ipTV_db->query('
                     SELECT t1.*
                     FROM `streams` t1
                     INNER JOIN `streams_sys` t2 ON t2.stream_id = t1.id AND t2.pid IS NOT NULL AND t2.server_id = \'%d\'
@@ -29,9 +29,9 @@ $f566700a43ee8e1f0412fe10fbdf03df->query('
 if (A78bF8d35765BE2408c50712cE7a43ad::$settings['use_buffer'] == 0) {
     header('X-Accel-Buffering: no');
 }
-if ($f566700a43ee8e1f0412fe10fbdf03df->D1e5cE3B87Bb868B9E6eFd39aA355A4F() > 0) {
-    $Fc8c2b91e5fde0dc817c47293478940a = $f566700a43ee8e1f0412fe10fbdf03df->F1ed191D78470660edfF4A007696Bc1f();
-    $f566700a43ee8e1f0412fe10fbdf03df->ca531f7bDC43b966dEFB4aBA3C8Faf22();
+if ($ipTV_db->D1e5cE3B87Bb868B9E6eFd39aA355A4F() > 0) {
+    $Fc8c2b91e5fde0dc817c47293478940a = $ipTV_db->F1ed191D78470660edfF4A007696Bc1f();
+    $ipTV_db->ca531f7bDC43b966dEFB4aBA3C8Faf22();
     $E6dd23f358d554b9a74e3ae676bc8c9b = MOVIES_PATH . $ba85d77d367dcebfcc2a3db9e83bb581 . '.' . $F1350a5569e4b73d2f9cb26483f2a0c1;
     if (file_exists($E6dd23f358d554b9a74e3ae676bc8c9b)) {
         switch ($F1350a5569e4b73d2f9cb26483f2a0c1) {
@@ -111,12 +111,12 @@ if ($f566700a43ee8e1f0412fe10fbdf03df->D1e5cE3B87Bb868B9E6eFd39aA355A4F() > 0) {
 }
 function shutdown()
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df, $f0ac6ad2b40669833242a10c23cad2e0;
+    global $ipTV_db, $f0ac6ad2b40669833242a10c23cad2e0;
     if ($f0ac6ad2b40669833242a10c23cad2e0) {
         D9f93B7c177E377D0BBFE315EaEaE505();
     }
-    if (is_object($f566700a43ee8e1f0412fe10fbdf03df)) {
-        $f566700a43ee8e1f0412fe10fbdf03df->cA531f7BdC43B966dEFb4aBA3c8FAf22();
+    if (is_object($ipTV_db)) {
+        $ipTV_db->cA531f7BdC43B966dEFb4aBA3c8FAf22();
     }
     fastcgi_finish_request();
 }

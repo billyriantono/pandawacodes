@@ -119,10 +119,10 @@ if ($a8df9f055e91a1e9240230b69af85555 = cd89785224751CcA8017139daf9E891e::e55505
     if ($ffb1e0970b62b01f46c2e57f2cded6c2 = cd89785224751cCa8017139daF9e891E::f3C105bcCed491229d4AEd6937f96A8c($ba85d77d367dcebfcc2a3db9e83bb581, $F1350a5569e4b73d2f9cb26483f2a0c1, $a8df9f055e91a1e9240230b69af85555, $f4889efa84e1f2e30e5e9780973f68cb, $A75f2436a5614184bfe3442ddd050ec5, '', $a8df9f055e91a1e9240230b69af85555['con_isp_name'], 'movie')) {
         $a7e968a4f6d75092e74cdeb1b406041a = time();
         $E2e6656d8b1675f70c487f89e4f27a3b = 'VOD';
-        $f566700a43ee8e1f0412fe10fbdf03df->query('INSERT INTO `user_activity_now` (`user_id`,`stream_id`,`server_id`,`user_agent`,`user_ip`,`container`,`pid`,`date_start`,`geoip_country_code`,`isp`) VALUES(\'%d\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\',\'%d\',\'%d\',\'%s\',\'%s\')', $a8df9f055e91a1e9240230b69af85555['id'], $ba85d77d367dcebfcc2a3db9e83bb581, SERVER_ID, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $E2e6656d8b1675f70c487f89e4f27a3b, getmypid(), $a7e968a4f6d75092e74cdeb1b406041a, $A75f2436a5614184bfe3442ddd050ec5, $a8df9f055e91a1e9240230b69af85555['con_isp_name']);
-        $E821605d1d9382d422040b86d29632d9 = $f566700a43ee8e1f0412fe10fbdf03df->BeB8A0bBA80a0133A23fe13d34dC94D6();
+        $ipTV_db->query('INSERT INTO `user_activity_now` (`user_id`,`stream_id`,`server_id`,`user_agent`,`user_ip`,`container`,`pid`,`date_start`,`geoip_country_code`,`isp`) VALUES(\'%d\',\'%d\',\'%d\',\'%s\',\'%s\',\'%s\',\'%d\',\'%d\',\'%s\',\'%s\')', $a8df9f055e91a1e9240230b69af85555['id'], $ba85d77d367dcebfcc2a3db9e83bb581, SERVER_ID, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $E2e6656d8b1675f70c487f89e4f27a3b, getmypid(), $a7e968a4f6d75092e74cdeb1b406041a, $A75f2436a5614184bfe3442ddd050ec5, $a8df9f055e91a1e9240230b69af85555['con_isp_name']);
+        $E821605d1d9382d422040b86d29632d9 = $ipTV_db->BeB8A0bBA80a0133A23fe13d34dC94D6();
         $Cec7b3525ded5578bb4eaefe5020eb98 = TMP_DIR . $E821605d1d9382d422040b86d29632d9 . '.con';
-        $f566700a43ee8e1f0412fe10fbdf03df->cA531F7bDc43b966DEFB4aBA3C8faf22();
+        $ipTV_db->cA531F7bDc43b966DEFB4aBA3C8faf22();
         switch ($F1350a5569e4b73d2f9cb26483f2a0c1) {
             case 'mp4':
                 header('Content-type: video/mp4');
@@ -235,12 +235,12 @@ if ($a8df9f055e91a1e9240230b69af85555 = cd89785224751CcA8017139daf9E891e::e55505
 }
 function shutdown()
 {
-    global $f566700a43ee8e1f0412fe10fbdf03df, $E821605d1d9382d422040b86d29632d9, $Cec7b3525ded5578bb4eaefe5020eb98, $a8df9f055e91a1e9240230b69af85555, $E2e6656d8b1675f70c487f89e4f27a3b, $f0ac6ad2b40669833242a10c23cad2e0, $ba85d77d367dcebfcc2a3db9e83bb581, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $A75f2436a5614184bfe3442ddd050ec5, $a349f0750f0a814bd31ec4b3da51da95, $a7e968a4f6d75092e74cdeb1b406041a;
+    global $ipTV_db, $E821605d1d9382d422040b86d29632d9, $Cec7b3525ded5578bb4eaefe5020eb98, $a8df9f055e91a1e9240230b69af85555, $E2e6656d8b1675f70c487f89e4f27a3b, $f0ac6ad2b40669833242a10c23cad2e0, $ba85d77d367dcebfcc2a3db9e83bb581, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $A75f2436a5614184bfe3442ddd050ec5, $a349f0750f0a814bd31ec4b3da51da95, $a7e968a4f6d75092e74cdeb1b406041a;
     if ($f0ac6ad2b40669833242a10c23cad2e0) {
         D9F93B7c177E377d0BBfE315EAEae505();
         http_response_code(401);
     }
-    $f566700a43ee8e1f0412fe10fbdf03df->Ca531F7bdC43b966dEfb4aBA3C8FAf22();
+    $ipTV_db->Ca531F7bdC43b966dEfb4aBA3C8FAf22();
     if ($E821605d1d9382d422040b86d29632d9 != 0) {
         Cd89785224751CCa8017139daf9e891E::e990445b40642e0EfD070e994375f6AF($E821605d1d9382d422040b86d29632d9);
         Cd89785224751ccA8017139daF9e891E::A49C2fb1eBA096c52a352A85C8d09d8d(SERVER_ID, $a8df9f055e91a1e9240230b69af85555['id'], $ba85d77d367dcebfcc2a3db9e83bb581, $a7e968a4f6d75092e74cdeb1b406041a, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $E2e6656d8b1675f70c487f89e4f27a3b, $A75f2436a5614184bfe3442ddd050ec5, $a8df9f055e91a1e9240230b69af85555['con_isp_name'], $a349f0750f0a814bd31ec4b3da51da95);
