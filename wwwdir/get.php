@@ -18,7 +18,7 @@ ini_set("memory_limit", -1);
 if (!($output = EA3020592126F8E67C0825492484aEf2($E38668abaa324e464e266fb7b7e784b1, $eb44bb017bb845b562c754c6978bad18, $bca72c242cf770f855c0eae8936335b7, true))) {
     A752420495cf10bcbd19e06082e6621e:
     C3af29ee8713a5866e91b499a00fa5f9:
-    D9f93b7C177E377D0BbFe315eAEae505();
+    checkFlood();
     http_response_code(404);
     // [PHPDeobfuscator] Implied script end
     return;

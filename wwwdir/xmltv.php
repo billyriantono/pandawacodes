@@ -51,7 +51,7 @@ if (!($c72d66b481d02f854f0bef67db92a547 = mysqli_fetch_assoc($b0f1eb357ed72245e0
         goto C0fdbb36b6d440c0be5ac70d8fcca3d9;
     }
     http_response_code(401);
-    d9f93B7C177E377D0bbfE315EAeAE505();
+    checkFlood();
     C0fdbb36b6d440c0be5ac70d8fcca3d9:
     // [PHPDeobfuscator] Implied script end
     return;

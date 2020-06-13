@@ -17,7 +17,7 @@ if (!(!empty(A78bF8d35765BE2408c50712Ce7A43aD::$request["username"]) && !empty(A
     if (!$f0ac6ad2b40669833242a10c23cad2e0) {
         goto e12b5fc7cf1d8c07773fe73d1d759b52;
     }
-    D9f93b7c177E377d0BBFE315eAEae505();
+    checkFlood();
     e12b5fc7cf1d8c07773fe73d1d759b52:
     // [PHPDeobfuscator] Implied script end
     return;

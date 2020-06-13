@@ -361,7 +361,7 @@ if (!(!isset(A78bF8D35765bE2408c50712Ce7A43aD::$request["username"]) || !isset(A
         goto efb007882c5d3ecc647c0bc83bb4a7a5;
     }
     http_response_code(401);
-    d9f93B7C177e377d0BBFE315eAeaE505();
+    checkFlood();
     efb007882c5d3ecc647c0bc83bb4a7a5:
     // [PHPDeobfuscator] Implied script end
     return;

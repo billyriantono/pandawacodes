@@ -113,7 +113,7 @@ function shutdown()
 {
     global $ipTV_db, $f0ac6ad2b40669833242a10c23cad2e0;
     if ($f0ac6ad2b40669833242a10c23cad2e0) {
-        D9f93B7c177E377D0BBFE315EaEaE505();
+        checkFlood();
     }
     if (is_object($ipTV_db)) {
         $ipTV_db->cA531f7BdC43B966dEFb4aBA3c8FAf22();

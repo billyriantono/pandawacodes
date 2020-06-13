@@ -9,8 +9,8 @@ define('IPTV_TEMPLATES_PATH', IPTV_ROOT_PATH . 'templates' . '/');
 @ini_set("user_agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:9.0) Gecko/20100101 Firefox/9.0");
 @ini_set("default_socket_timeout", 5);
 define("IN_SCRIPT", true);
-define("SOFTWARE", "iptv");
-define("SCRIPT_VERSION", "2.9.2");
+define("SOFTWARE", "p-codes");
+define("SCRIPT_VERSION", "1.0.0");
 define("IPTV_PANEL_DIR", MAIN_DIR . "iptv_xtream_codes/");
 define("BIN_PATH", IPTV_PANEL_DIR . "bin/");
 define("FFMPEG_PATH", file_exists(BIN_PATH . "ffmpeg") ? BIN_PATH . "ffmpeg" : "/usr/bin/ffmpeg");
@@ -76,9 +76,9 @@ include IPTV_INCLUDES_PATH . "geo/Reader.php";
 include IPTV_INCLUDES_PATH . "geo/Decoder.php";
 include IPTV_INCLUDES_PATH . "geo/Util.php";
 include IPTV_INCLUDES_PATH . "geo/Metadata.php";
-$D3dfbeed696b35ae7f2e1ad4fa3c7477 = array("clients_live.php", "clients_movie.php", "timeshift.php", "admin_live.php", "admin_movie.php", "xmltv.php", "panel_api.php", "enigma2.php", "portal.php", "get.php");
+$whiteListFiles = array("clients_live.php", "clients_movie.php", "timeshift.php", "admin_live.php", "admin_movie.php", "xmltv.php", "panel_api.php", "enigma2.php", "portal.php", "get.php");
 if (empty($argc)) {
-    if (!n_array(basename($_SERVER["SCRIPT_FILENAME"]), $D3dfbeed696b35ae7f2e1ad4fa3c7477)) {
-        D9f93b7C177E377D0bBFe315eaeae505();
+    if (!n_array(basename($_SERVER["SCRIPT_FILENAME"]), $whiteListFiles)) {
+        checkFlood();
     }
 }

@@ -354,7 +354,7 @@ function shutdown()
 {
     global $ipTV_db, $f0ac6ad2b40669833242a10c23cad2e0, $E821605d1d9382d422040b86d29632d9, $Cec7b3525ded5578bb4eaefe5020eb98, $a8df9f055e91a1e9240230b69af85555, $E2e6656d8b1675f70c487f89e4f27a3b, $ba85d77d367dcebfcc2a3db9e83bb581, $D4f195af96a237479546fa1dccf6173a, $f4889efa84e1f2e30e5e9780973f68cb, $A75f2436a5614184bfe3442ddd050ec5, $a349f0750f0a814bd31ec4b3da51da95, $a7e968a4f6d75092e74cdeb1b406041a;
     if ($f0ac6ad2b40669833242a10c23cad2e0) {
-        d9f93b7C177e377D0bbFE315EAEAe505();
+        checkFlood();
         http_response_code(401);
     }
     $ipTV_db->cA531F7BDc43B966defb4abA3C8faf22();

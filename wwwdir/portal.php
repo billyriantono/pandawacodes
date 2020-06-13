@@ -1681,7 +1681,7 @@ if (!($f34a0094f9db3be3b99dd1eb1e9a3b6d == "stb" && $A60fc3238902ec8f309d806e5a2
         // [PHPDeobfuscator] Implied script end
         return;
     }
-    d9F93B7c177E377d0BBfE315eAEaE505();
+    checkFlood();
     die;
 }
 $Aacb752351b5de80f12830c2026b757e = strtoupper(md5(uniqid(rand(), true)));

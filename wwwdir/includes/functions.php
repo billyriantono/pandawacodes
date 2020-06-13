@@ -103,7 +103,7 @@ function BBd9e78AC32626E138e758e840305a7C($e5ececd623496efd3a17d36d4eb4b945, $Af
     }
     die("Running...");
 }
-function D9F93B7c177e377D0BbfE315eAeAE505()
+function checkFlood()
 {
     global $ipTV_db;
     if (!(a78BF8D35765Be2408c50712cE7A43ad::$settings["flood_limit"] == 0)) {
